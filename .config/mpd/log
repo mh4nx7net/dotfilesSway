@@ -1,0 +1,9 @@
+Mar 03 19:21 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 03 19:21 : exception: Failed to open '/home/dev/.config/mpd/state': No such file or directory
+Mar 03 19:21 : config: option 'options' on line 10 was not recognized
+Mar 03 19:21 : update: added /みきなつみボクらの叫びOfficial Music Video.mp3
+Mar 03 19:21 : avahi: Service 'Music Player @ dev-Presario-CQ42-Notebook-PC' successfully established.
+Mar 03 19:24 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 03 19:24 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Mar 03 19:29 : player: played "みきなつみボクらの叫びOfficial Music Video.mp3"
+Mar 03 21:01 : player: played "みきなつみボクらの叫びOfficial Music Video.mp3"

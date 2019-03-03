@@ -1,0 +1,270 @@
+#sec theme
+#mh4nx7net <androxoss@hotmail.com>
+#repo: https://github.com/mh4nx7net/dotfiles/sectheme
+#licence: mh4nx7net (mohon sertakan sumber)
+# Copy this to ~/.config/sway/config and edit it to your liking.
+# Read `man 5 sway` for a complete reference.
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+output * bg ~/Pictures/4k-wallpapers-7.jpg fill
+font 'pango:San Francisco 8'
+#workspace 1 output HDMI-A-1
+#workspace 2 output VGA-1
+#output HDMI-A-1 {
+#	res 1600x900
+#	position 768 0
+#}
+#output VGA-1 {
+#	res 1024x768
+#	position 0 0
+#	transform 90
+#}
+
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+set $term urxvt
+set $menu2 rofi -show run
+set $menu1 rofi -show drun
+#set $menu dmenu_path | dmenu | xargs swaymsg exec
+
+default_border none
+default_floating_border none
+hide_edge_borders none
+smart_borders on
+#new_window pixel 1
+#new_float normal
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# GAPS AND WINDOW RESIZE #
+# gaps inner all set 10
+# gaps outer all plus 5
+#smart_gaps on
+gaps inner 10
+gaps outer -4
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# colors
+set $fg  #363837
+set $bg  #363837
+set $focused_bg #363837
+set $ind #407055
+# class                 border  backgr. text indicator child_border
+client.focused          $focused_bg  $focused_bg  $focused_bg  $ind  $focused_bg
+client.focused_inactive $bg          $bg          $fg          $bg   $bg
+client.unfocused        $bg          $bg          $fg          $bg   $bg
+client.urgent           $bg          $bg          $fg          $ind  $bg
+client.placeholder      $bg          $bg          $fg          $ind  $bg
+client.background       $bg
+
+popup_during_fullscreen smart
+
+for_window [class="Nitrogen"]                           floating enable
+for_window [title="Calculator"]                         floating enable
+for_window [title="nmtui"]                              floating enable
+for_window [class="Lxappearance"]                       floating enable
+for_window [window_role="pop-up"]                       floating enable
+for_window [title="alsamixer"]                          floating enable border pixel 1
+for_window [class="Simple-scan"]                        floating enable border normal
+for_window [class="Skype"]                              floating enable border normal
+for_window [class="Teamviewer"]                         floating enable border normal
+for_window [title="File Transfer*"]                     floating enable
+for_window [title="Library"]                            floating enable
+for_window [title="TeamViewer"]                         floating enable
+for_window [class="winbox"]                             floating enable
+for_window [class="Ekiga"]                              floating enable
+for_window [class="Pidgin"]                             floating enable
+for_window [class="0x1400007"]                          floating enable
+for_window [title="GParted"]                            floating enable
+for_window [title="Software & Updates"]                 floating enable
+for_window [title="Android Virtual Device Manager"]     floating enable
+for_window [title="Klondike"]                           floating enable
+for_window [title="All Fonts"]                          floating enable
+for_window [title="Blender Preferences"]                                floating enable
+for_window [urgent=latest]                              focus
+#for_window [class="(?i)virtualbox"]                    floating enable border normal
+#for_window [class="Firefox"]                           move container to workspace 2   #a$
+
+# tiny border
+#for_window [class="^.*"] border pixel 0
+
+# BINDING WINDOWS #
+#bindsym $mod+d exec rofi -show run
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+floating_modifier $mod normal
+bindsym $mod+Shift+r            reload
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+g            mode "$mode_gaps"
+bindsym $mod+b splith
+bindsym $mod+v splitv
+bindsym $mod+f fullscreen
+#bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+minus scratchpad show
+bindsym $mod+a focus parent
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+e layout toggle split
+bindsym $mod+space              focus mode_toggle
+bindsym $mod+Tab        exec --no-startup-id rofi -show window
+bindsym $mod+Shift+c            reload
+bindsym $mod+Shift+space        floating toggle
+bindsym $mod+Shift+m    exec $term -e 'alsamixer'
+bindsym $mod+Shift+n    exec $term -e 'ncmpcpp'
+bindsym $mod+d		exec $menu1
+bindsym $mod+Shift+d    exec $menu2
+bindsym $mod+p          exec pcmanfm
+bindsym Print          exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Pictures'
+#bindsym Print          exec --no-startup-id ~/.config/i3/scrot.sh#exec_always --no-startup-id ~/.config/polybar/polylauncer.sh
+	
+#autostartup
+exec xrdb ~/.Xresources
+#exec --no-startup-id xfsettingsd --sm-client-disable &	
+#exec --no-startup-id nm-applet
+#exec compton --backend glx --vsync drm --unredir-if-possible --paint-on-overlay -b
+#exec_always --no-startup-id ~/.config/polybar/polylauncer.sh
+#exec_always nitrogen --restore
+
+### Idle configuration
+#
+# Example configuration:
+#
+ exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * dpms off"' \
+               resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+   input "2:7:SynPS/2_Synaptics_TouchPad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position bottom
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+#    status_command sway_status.py
+    strip_workspace_numbers yes
+    pango_markup enabled
+    font swaybar-icons 7
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+#    colors {
+#        statusline #000000
+#        background #dedede
+#        separator  #b7b7b7
+#        inactive_workspace #00000000 #dedede #555555
+#        focused_workspace  #b7b7b7   #f5f5f5 #555555
+#        urgent_workspace   #00000000 #dedede #00a0ff
+#    }
+}
+
+include /etc/sway/config.d/*
