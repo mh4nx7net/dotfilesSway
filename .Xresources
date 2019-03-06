@@ -3,12 +3,24 @@ URxvt.perl-ext-common: default,tabbed,matcher,searchable-scrollback,selection-to
 urxvt*cutchars: "()*,<>[]{}|'"
 urxvt*urlLauncher:      firefox
 urxvt*matcher.button:   1
+Xft.dpi: 120
+Xft.antialiasing: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.lcdfilter: lcddefault
 *saveLines: 1000000
 
 !urxvt*keysym.S-Prior:	^[[5;2~
 !urxvt*keysym.S-Next:	^[[6;2~
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+
 
 URxvt*scrollBar: false
 URxvt*scrollTtyOutput:      false
@@ -17,25 +29,29 @@ URxvt*scrollTtyKeypress:    true
 URxvt*loginShell: true
 URxvt*fading: 30
 urxvt*highlightSelection: true
-urxvt*tintColor: #000000
-urxvt*blurRadius: 5
+!urxvt*tintColor: #000000
+!urxvt*blurRadius: 99
 !urxvt*transparent: true
 !urxvt*shading: 30
 
 urxvt*depth: 32
-urxvt*background: rgba:0000/0000/0200/c800
+!urxvt*background: rgba:0000/0000/0200/f500
 
 ! URxvt.letterSpace: -1
 
 ! -- Fonts -- !
+!URxvt.font-size.step: 4
 URxvt.font:xft:Monospace:pixelsize=11
+!URxvt.font.xft.FontAwesome\-g: size=8
+!URxvt.font:xft:EnvyCodeR\-g: size=6
 URxvt.boldfont:xft:Monospace-Bold:pixelsize=11
 !URxvt*font:  -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12
 !URxvt*boldFont:  -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12
 !URxvt*italicFont:  xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
 !URxvt*boldItalicFont:  xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=12
 
-urxvt*cursorColor:  #ff6600
+urxvt*cursorColor:  #C1C1C1
+!urxvt*cursorColor:  #ff6600
 urxvt*cursorBlink:   off
 urxvt*pointerColor: #00ff00
 !urxvt*background:   #141414
@@ -54,7 +70,7 @@ urxvt*underLine: on
 
 ! --- special colors ---
 
-*background: #0e1325
+*background: #282f39
 *foreground: #ffffff
 
 ! --- standard colors ---
