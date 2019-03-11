@@ -2,4 +2,4 @@
 ![PREVIEW](Pictures/Screenshot/grimshoot-foc-2019-03-11-11-40-02.png)
 
 depend
-![BACA SAYA](.config/sway/depend.yml)
+<.config/sway/depend.yml>
