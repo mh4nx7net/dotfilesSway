@@ -35,7 +35,7 @@ urxvt*highlightSelection: true
 !urxvt*shading: 30
 
 urxvt*depth: 32
-!urxvt*background: rgba:0000/0000/0200/f500
+urxvt*background: rgba:2800/2f00/3900/d200
 
 ! URxvt.letterSpace: -1
 
