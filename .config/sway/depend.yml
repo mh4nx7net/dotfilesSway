@@ -1,0 +1,16 @@
+base			sway
+locker			swaylock
+manager-bg		sway-backgrounds
+manager-idle		swayidle
+screenshot		grim
+screenshot-crop		slurp
+
+bar			swaybar
+bar-alt			waybar
+bar-status		i3status
+
+backend-clipboard	wl-clipboard
+backend-clipboard	wl-copy
+backend-notifier	mako
+backend-json-processor	jq
+
